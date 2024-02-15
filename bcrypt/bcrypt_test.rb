@@ -1,12 +1,29 @@
-require_relative 'auth'
+require_relative 'Auth'
 
-users = [
-          { username: "mashrur", password: "password1" },
-          { username: "jack", password: "password2" },
-          { username: "arya", password: "password3" },
-          { username: "jonshow", password: "password4" },
-          { username: "heisenberg", password: "password5" }
-        ]
+class Student
+  include Auth
+  attr_accessor :first_name, :last_name, :email, :username, :password
 
-hashed_users = Crud.create_secure_users(users)
-puts hashed_users
+  def initialize(firstname, lastname, username, email, password)
+    @first_name = firstname
+    @last_name = lastname
+    @username = username
+    @email = email
+    @password = password
+  end
+
+  def to_s
+    "First name: #{@first_name}, Last name: #{@last_name}, Username: #{@username},
+                  email address: #{@email}"
+  end
+
+end
+
+mashrur = Student.new("Mashrur", "Hossain", "mashrur1", "mashrur@example.com",
+                      "password1")
+john = Student.new("John", "Doe", "john1", "john1@example.com",
+                      "password2")
+
+hashed_password = mashrur.create_hash_digest(mashrur.password)
+
+puts hashed_password
