@@ -10,4 +10,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'about', to: 'pages#about'
+  
+  #this creates some crud paths for the articles controller
+  resources :articles
 end
