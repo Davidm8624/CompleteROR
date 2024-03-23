@@ -6,12 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <% flash.each do |name, msg| %>
-    <ul>
-      <li><%= msg %></li>
-    </ul>
-  <% end %>
+<!--
+#in the same way that we made a partial for new/edit we are moving the one time pop-up messages to its own file and embedding them here
+-->
+  <%= render 'layouts/messages' %>
 <%= yield %>
 
 </body>
