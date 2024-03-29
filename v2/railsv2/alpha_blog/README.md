@@ -6,11 +6,11 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+3.2.3
 * System dependencies
 
 * Configuration
-
+rails new alpha_blog -j esbuild --css bootstrap --skip-git
 * Database creation
 
 * Database initialization
